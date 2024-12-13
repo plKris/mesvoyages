@@ -59,8 +59,8 @@ class Visite
     public function validate(ExecutionContextInterface $context){
         $file = $this->getImageFile();
         if($file != null && $file != "" ){
-            $poid = @filesize($file);
-            if($poid != false && $poids > 512000){
+            $poids = @filesize($file);
+            if($poids != false && $poids > 512000){
                 $context->buildViolation("Cette image est trop lourde (500Ko max")
                         ->atPath('imageFile')
                         ->addViolation();
